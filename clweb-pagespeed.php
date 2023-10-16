@@ -13,32 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// #1 Class based
-// class CLWebPagespeed {
-// 	public function __construct() {
-// 		add_action('init', array($this, 'code_to_run_on_init'));
-// 	}
-
-// 	public function code_to_run_on_init() { 
-// 		add_action('wp', 'inner_func');
-// 		function inner_func() {
-// 			if ( is_page('about') ) {
-// 				echo '<h1>This is the about page!</h1>';
-// 			} 
-
-// 			// // Eliminate unused CSS
-// 			// function my_dequeue_script(){
-// 			// 	wp_dequeue_style('wp-block-library');	
-// 			// 	wp_dequeue_style('hello-elementor-theme-style');
-// 			// 	wp_dequeue_style('hello-elementor');
-// 			// }
-// 			// add_action('wp_enqueue_scripts', 'my_dequeue_script', 99 );			
-// 		} 
-    
-// 	}
-// }
-
-// Testing 
+// Run only on specified page
 // function my_test_func() {
 // 	$var = '<h1>This is the about us page!</h1>';
 
@@ -49,15 +24,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 // }
 // add_action( 'wp','my_test_func' );
 
-// new CLWebPagespeed;
-
 // Eliminate unused CSS
 function my_dequeue_script(){
 	wp_dequeue_style('wp-block-library');	
 	wp_dequeue_style('hello-elementor-theme-style');
 	wp_dequeue_style('hello-elementor');
 }
-add_action('wp_enqueue_scripts', 'my_dequeue_script', 99 );	
+add_action('wp_enqueue_scripts', 'my_dequeue_script', 99 );
 
 // First Contentful Paint (FCP) and render blocking resources
 function my_preload() {
